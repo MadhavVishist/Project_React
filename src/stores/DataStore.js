@@ -36,7 +36,7 @@ class DataStore {
 
       this.data = await Promise.all(detailedDataPromises);
     } catch (error) {
-      this.error = "Failed to fetch data";
+     this.error =`Failed to fetch Pokémon data: ${error.message}`;
     } finally {
       this.loading = false;
     }
