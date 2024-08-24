@@ -18,7 +18,7 @@ class DataStore {
     this.loading = true;
     this.error = null;
     try {
-      const response = await axios.get(`'https://pokeapi.co/api/v2/`);
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=151`);
       const basicData = response.data.results;
 
       // Fetch additional details (stats and image) for each Pokémon
@@ -36,7 +36,7 @@ class DataStore {
 
       this.data = await Promise.all(detailedDataPromises);
     } catch (error) {
-     this.error =`Failed to fetch Pokémon data: ${error.message}`;
+      this.error =`Failed to fetch Pokémon data: ${error.message}`;
     } finally {
       this.loading = false;
     }
